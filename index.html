@@ -5,56 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tools & Movies Hub</title>
     <style>
-        /* --- Global Setup --- */
         html, body {
             height: 100%;
             margin: 0;
-            padding: 0;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: #000;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
         }
 
-        /* --- Background Effect --- */
-        body {
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
-        }
+        body { background: radial-gradient(circle, #1a1a1a 0%, #000 100%); }
 
-        /* --- Master Container --- */
         .wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             padding: 40px 20px;
             text-align: center;
         }
 
         .main-header {
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 900;
             letter-spacing: 4px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-transform: uppercase;
             background: linear-gradient(#fff, #666);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
         }
 
-        /* --- Grid Layout --- */
         .dashboard-grid {
             display: flex;
-            flex-direction: row;
             justify-content: center;
-            align-items: flex-start;
             gap: 30px;
-            width: 100%;
             flex-wrap: wrap;
         }
 
@@ -62,88 +47,38 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            width: 300px;
+            width: 320px;
             padding: 30px;
-            border-radius: 20px;
+            border-radius: 25px;
             backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
         }
 
-        .column:hover {
-            transform: translateY(-5px);
-        }
+        /* Tools Blue Theme */
+        .tools-col { background: rgba(20, 30, 40, 0.5); border: 1px solid rgba(52, 152, 219, 0.3); }
+        .tools-btn { background: #2980b9; color: white; border: none; padding: 16px; font-weight: 900; border-radius: 12px; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        .tools-btn:hover { background: #3498db; box-shadow: 0 0 20px rgba(52, 152, 219, 0.4); }
 
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* --- Tools Column --- */
-        .tools-col {
-            background: rgba(20, 30, 40, 0.5);
-            border: 1px solid rgba(52, 152, 219, 0.4);
-        }
-        .tools-btn {
-            background-color: #2980b9;
-            color: white;
-            border: none;
-            padding: 16px;
-            font-weight: 900;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.3s;
-            width: 100%;
-            letter-spacing: 1px;
-            font-size: 13px;
-        }
-        .tools-btn:hover {
-            background-color: #3498db;
-            box-shadow: 0 0 20px rgba(52, 152, 219, 0.4);
-        }
-
-        /* --- Movies Column --- */
-        .movies-col {
-            background: rgba(60, 10, 10, 0.4);
-            border: 1px solid rgba(231, 76, 60, 0.4);
-        }
-        .movie-btn {
-            background-color: #c0392b;
-            color: white;
-            border: none;
-            padding: 16px;
-            font-weight: 900;
-            border-radius: 8px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.3s;
-            width: 100%;
-            letter-spacing: 1px;
-            font-size: 13px;
-        }
-        .movie-btn:hover {
-            background-color: #e74c3c;
-            box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
-        }
+        /* Movies Red Theme */
+        .movies-col { background: rgba(60, 10, 10, 0.4); border: 1px solid rgba(231, 76, 60, 0.3); }
+        .movie-btn { background: #c0392b; color: white; border: none; padding: 16px; font-weight: 900; border-radius: 12px; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        .movie-btn:hover { background: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.4); }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
         <h1 class="main-header">Tools & Movies</h1>
-
         <div class="dashboard-grid">
             
             <div class="column tools-col">
-                <h2 style="color: #3498db;">Tools</h2>
+                <h2 style="color: #3498db; margin-bottom: 15px;">Tools</h2>
                 <button class="tools-btn" onclick="window.open('https://reddit-viewer.com/', '_blank')">Reddit Viewer</button>
                 <button class="tools-btn" onclick="launch('GitHub Viewer', 'https://billybong51.github.io/GitHub-Repository-Search/')">GitHub Alt Viewer</button>
+                <button class="tools-btn" onclick="launch('YouTube Viewer', 'https://safeshare.tv/')">YouTube Viewer</button>
             </div>
 
             <div class="column movies-col">
-                <h2 style="color: #e74c3c;">Movies</h2>
+                <h2 style="color: #e74c3c; margin-bottom: 15px;">Movies</h2>
                 <button class="movie-btn" onclick="window.open('https://Bflixz.org', '_blank')">Bflixz</button>
                 <button class="movie-btn" onclick="window.open('https://pluto.tv/', '_blank')">Pluto TV</button>
                 <button class="movie-btn" onclick="window.open('https://app.plex.tv/desktop/#!/', '_blank')">Plex</button>
@@ -155,26 +90,8 @@
     <script>
         function launch(name, url) {
             const newTab = window.open('about:blank', '_blank');
-            if (!newTab) {
-                alert('Popup blocked! Please allow popups.');
-                return;
-            }
-
-            const content = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>${name}</title>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #fff; }
-        iframe { border: none; width: 100%; height: 100%; }
-    </style>
-</head>
-<body>
-    <iframe src="${url}"></iframe>
-</body>
-</html>`;
-
+            if (!newTab) return alert('Popup blocked!');
+            const content = `<html><head><title>${name}</title><style>body,html{margin:0;padding:0;height:100%;width:100%;overflow:hidden;background:#000;}iframe{border:none;width:100%;height:100%;}</style></head><body><iframe src="${url}"></iframe></body></html>`;
             newTab.document.open();
             newTab.document.write(content);
             newTab.document.close();
